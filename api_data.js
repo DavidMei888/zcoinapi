@@ -21,143 +21,6 @@ define({ "api": [
     "type": "get",
     "url": "/user/:id",
     "title": "Read data of a User",
-    "version": "0.3.0",
-    "name": "GetUser",
-    "group": "User",
-    "permission": [
-      {
-        "name": "admin"
-      }
-    ],
-    "description": "<p>Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>The Users-ID.</p>"
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "curl -i http://localhost/user/4711",
-        "type": "json"
-      }
-    ],
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>The Users-ID.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "registered",
-            "description": "<p>Registration Date.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Fullname of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String[]",
-            "optional": false,
-            "field": "nicknames",
-            "description": "<p>List of Users nicknames (Array of Strings).</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "profile",
-            "description": "<p>Profile data (example for an Object)</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "profile.age",
-            "description": "<p>Users age.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "profile.image",
-            "description": "<p>Avatar-Image.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "options",
-            "description": "<p>List of Users options (Array of Objects).</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "options.name",
-            "description": "<p>Option Name.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "options.value",
-            "description": "<p>Option Value.</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "NoAccessRight",
-            "description": "<p>Only authenticated Admins can access the data.</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UserNotFound",
-            "description": "<p>The <code>id</code> of the User was not found.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "HTTP/1.1 401 Not Authenticated\n{\n  \"error\": \"NoAccessRight\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "api/example.js",
-    "groupTitle": "User"
-  },
-  {
-    "type": "get",
-    "url": "/user/:id",
-    "title": "Read data of a User",
     "version": "0.2.0",
     "name": "GetUser",
     "group": "User",
@@ -279,73 +142,6 @@ define({ "api": [
   {
     "type": "post",
     "url": "/user",
-    "title": "Create a new User",
-    "version": "0.3.0",
-    "name": "PostUser",
-    "group": "User",
-    "permission": [
-      {
-        "name": "none"
-      }
-    ],
-    "description": "<p>In this case &quot;apiUse&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Name of the User.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>The new Users-ID.</p>"
-          }
-        ]
-      }
-    },
-    "filename": "api/example.js",
-    "groupTitle": "User",
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "NoAccessRight",
-            "description": "<p>Only authenticated Admins can access the data.</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UserNameTooShort",
-            "description": "<p>Minimum of 5 characters required.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"UserNameTooShort\"\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "post",
-    "url": "/user",
     "title": "Create a User",
     "version": "0.2.0",
     "name": "PostUser",
@@ -411,18 +207,91 @@ define({ "api": [
     }
   },
   {
-    "type": "put",
-    "url": "/user/:id",
-    "title": "Change a new User",
-    "version": "0.3.0",
-    "name": "PutUser",
-    "group": "User",
+    "type": "post",
+    "url": "/init_plate",
+    "title": "初始化盘口",
+    "version": "0.1.0",
+    "name": "_____",
+    "group": "_____",
     "permission": [
       {
-        "name": "none"
+        "name": "admin"
       }
     ],
-    "description": "<p>This function has same errors like POST /user, but errors not defined again, they were included with &quot;apiUse&quot;</p>",
+    "description": "<p>初始化盘口，调用后将初始化所有机器人参数</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "none",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://localhost/robot/init_plate",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "200",
+            "description": "<p>权限不足</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>系统错误</p>"
+          }
+        ]
+      }
+    },
+    "filename": "api/zcoinapi.js",
+    "groupTitle": "_____"
+  },
+  {
+    "type": "post",
+    "url": "/canceld_order",
+    "title": "取消机器人订单",
+    "version": "0.1.0",
+    "name": "_______",
+    "group": "_____",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "description": "<p>取消机器人订单（只取消指定机器人用户ID的订单） 慎用此接口</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -430,38 +299,58 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "name",
-            "description": "<p>Name of the User.</p>"
+            "field": "sellMemberId",
+            "description": "<p>卖方UID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "canceldTime",
+            "description": "<p>订单取消时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "buyMemberId",
+            "description": "<p>买方UID</p>"
           }
         ]
       }
     },
-    "filename": "api/example.js",
-    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回代码</p>"
+          }
+        ]
+      }
+    },
     "error": {
       "fields": {
         "Error 4xx": [
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "NoAccessRight",
-            "description": "<p>Only authenticated Admins can access the data.</p>"
+            "field": "200",
+            "description": "<p>权限不足</p>"
           },
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "UserNameTooShort",
-            "description": "<p>Minimum of 5 characters required.</p>"
+            "field": "500",
+            "description": "<p>系统错误</p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"UserNameTooShort\"\n}",
-          "type": "json"
-        }
-      ]
-    }
+      }
+    },
+    "filename": "api/zcoinapi.js",
+    "groupTitle": "_____"
   }
 ] });
